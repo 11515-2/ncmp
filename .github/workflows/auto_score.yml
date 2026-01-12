@@ -2,7 +2,7 @@ name: Auto Score
 
 on:
   schedule:
-    - cron: '0 17 * * *'  # UTC 17:00 (北京时间1:00)
+    - cron: '0 1 * * *'  # UTC 17:00 (北京时间1:00)
   workflow_dispatch:
 
 jobs:
@@ -34,4 +34,5 @@ jobs:
         WAIT_TIME_MAX: ${{ secrets.WAIT_TIME_MAX }}
         SCORE: ${{ secrets.SCORE }}
         FULL_EXTRA_TASKS: ${{ secrets.FULL_EXTRA_TASKS }}
+
       run: python main.py 
