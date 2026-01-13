@@ -57,8 +57,8 @@ class Config:
             config["gh_repo"] = gh_repo
             
         config.setdefault("wait_time_min", 15)
-        config.setdefault("wait_time_max", 20)
-        config.setdefault("score", 3)  # 默认使用3-4分策略
+        config.setdefault("wait_time_max", 40)
+        config.setdefault("score", 2)  # 默认使用3-4分策略
         
         return config
     
@@ -85,11 +85,11 @@ class Config:
         
         # 设置默认值
         config.setdefault("wait_time_min", 15)
-        config.setdefault("wait_time_max", 20)
+        config.setdefault("wait_time_max", 40)
         config.setdefault("smtp_server", "smtp.gmail.com")
         config.setdefault("smtp_port", 465)
-        config.setdefault("score", 3)
-        config.setdefault("full_extra_tasks", False)
+        config.setdefault("score", 2)
+        config.setdefault("full_extra_tasks", True)
 
     def get(self, key: str, default: Any = None) -> Any:
         """获取配置项"""
@@ -98,5 +98,6 @@ class Config:
     def get_wait_time(self) -> float:
         """获取随机等待时间"""
         min_time = float(self.get("wait_time_min", 15))
-        max_time = float(self.get("wait_time_max", 20))
+        max_time = float(self.get("wait_time_max", 40))
         return random.uniform(min_time, max_time)
+
